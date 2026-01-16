@@ -1,0 +1,24 @@
+version: 3
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:latest
+dependencies:
+  python_interpreter:
+    package_system: python3
+  ansible_core:
+    package_pip: ansible-core
+  ansible_runner:
+    package_pip: ansible-runner
+  system:
+  - openssh-clients
+  - sshpass
+  - less
+  galaxy:
+    collections:
+    - name: community.general
+      version: "10.7.2"
+    - name: amazon.aws
+      version: "9.5.2"
+options:
+  package_manager_path: /usr/bin/microdnf
